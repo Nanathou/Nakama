@@ -1,0 +1,27 @@
+body {
+    padding-top: 50px;
+}
+
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.developer {
+    padding:10px;
+}
+
+.developer-content {
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 8px;
+    border-style: solid;
+    height: 200px;
+    padding:10px;
+}
+
+.tjm {
+    color : gray;
+    font-size: 1.4em;
+    text-align: right;
+}
