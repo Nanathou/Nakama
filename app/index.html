@@ -5,8 +5,10 @@
   <title>Plateforme de jeux</title>
   <link rel="stylesheet" href="libs/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
-  <script src="scripts/app.js"></script>
   <script src="libs/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+
+  <script src="connexion-controller.js"></script>
 </head>
 
 
@@ -19,11 +21,16 @@
               <a class="navbar-brand" href="#">Nakama</a>
 
           </div>
-          <div class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
-                <div>
-                  <h4> Identifiant : </h1><input type="text" class="form-control" placeholder="Identifiant"></input>
-                    <h4> Mot de passe : </h1><input type="text" class="form-control" placeholder="Mot de passe"></input>
+          <div class="navbar-collapse collapse" ng-controller="ConnexionController as connexionController">
+            <form name="connexionForm" class="navbar-form navbar-right">
+                <div  ng-if="!connexionController.isConnected">
+                    <input type="text" class="form-control input-sm" placeholder="Identifiant" ng-model="connexionController.ID" required ></input>
+                    <input type="text" class="form-control input-sm" placeholder="Mot de passe" ng-model="ConnexionController.password" required></input>
+                    <button type ="button" class="btn btn-primary btn-sm" ng-click="connexionController.setConnexion(true)" ng-disabled="connexionForm.$invalid"> Valider </button><br/>
+                    <h4><small><a href='#'>Se créer un compte </a></small></h4>
+                </div>
+                <div ng-if="connexionController.isConnected">
+                  <button class="btn btn-primary btn-sm" ng-click="connexionController.setConnexion(false)" type = "button"> Déconnexion </button>
                 </div>
             </form>
           </div>
